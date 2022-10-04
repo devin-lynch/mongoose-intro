@@ -70,8 +70,17 @@ const userCrud = async () => {
         // await foundBlog.save()
 
         // READ (query population)
-        const foundUser = await db.User.findOne({ name: 'Weston' })
-        console.log(foundUser)
+        // .populate('field to populate')
+        // const foundUser = await db.User.findOne({ name: 'Weston' }).populate('blogs')
+        // console.log(foundUser)
+        // populate a field in something being populated
+        const foundUser = await db.User.findOne({ name: 'Weston' }).populate({
+            path: 'blogs',
+            populate: {
+                path: 'blogger'
+            }
+        })
+        console.log(foundUser.blogs[0].blogger)
 
     } catch(err) {
         console.warn(err)
