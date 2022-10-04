@@ -7,11 +7,12 @@ mongoose.connect(uri)
 
 // use mongoose's connections methods to validate the database collection (useful console.logs)
 const db = mongoose.connection
-
 // connection success
 db.once('open', () => console.log(`mongoDB connected @ ${db.host}:${db.port} ⛓`))
 // connection failure
 db.on('error', err => console.warn('🔥 the data center has burned down', err))
 
 // export all of our mongoose models from this file
-
+module.exports = {
+    Drink: require('./Drink')
+}
