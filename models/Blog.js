@@ -22,8 +22,12 @@ const BlogSchema = new mongoose.Schema({
         type: String
     },
     // 1:M embedded subdocument 1 blog can have many comments
-    comments: [CommentSchema]
+    comments: [CommentSchema],
     // eventually we will add a reference to a user who made this blog
+    blogger: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
 }, {
     timestamps: true
 })

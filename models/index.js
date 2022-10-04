@@ -15,5 +15,6 @@ db.on('error', err => console.warn('🔥 the data center has burned down', err))
 // export all of our mongoose models from this file
 module.exports = {
     Drink: require('./Drink'),
-    Blog: require('./Blog')
+    Blog: require('./Blog'),
+    User: require('./User')
 }

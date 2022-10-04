@@ -47,4 +47,35 @@ const commentCrud = async () => {
     }
 }
 
-commentCrud()
+// commentCrud()
+
+const userCrud = async () => {
+    try {
+        // // CREATE (associate)
+        // const newUser = await db.User.create({
+        //     name: 'Weston'
+        // })
+
+        // // find a blog to associate with the user
+        // const foundBlog = await db.Blog.findOne({}) // find one blog -- the first one you bump into
+
+        // // push the blog into the user's array of blogs
+        // newUser.blogs.push(foundBlog)
+
+        // // add the user as the blog's blogger
+        // foundBlog.blogger = newUser
+
+        // // save both models (this is async)
+        // await newUser.save()
+        // await foundBlog.save()
+
+        // READ (query population)
+        const foundUser = await db.User.findOne({ name: 'Weston' })
+        console.log(foundUser)
+
+    } catch(err) {
+        console.warn(err)
+    }
+}
+
+userCrud()
