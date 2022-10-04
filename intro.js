@@ -27,11 +27,11 @@ const drinkCRUD = async () => {
         // console.log(allDrinks)
         allDrinks.forEach(drink => console.log(`drink ${drink.name} is rated ${drink.rating}`))
 
-        // // find one (.findOne({ search query })) -- returns object
-        // const chocoDrink = await db.Drink.findOne({
-        //     name: 'Chocolate Milk'
-        // })
-        // console.log(`found the choco drink: ${chocoDrink.name} is rated ${chocoDrink.rating}`)
+        // find one (.findOne({ search query })) -- returns object
+        const chocoDrink = await db.Drink.findOne({
+            name: 'Chocolate Milk'
+        })
+        console.log(`found the choco drink: ${chocoDrink.name} is rated ${chocoDrink.rating}`)
 
         // find by id (.findById('mongo id hash'))
         const strawberryMilk = await db.Drink.findById('633c6c37fe0dc902cef96f59')
